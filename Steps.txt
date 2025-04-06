@@ -1,0 +1,4 @@
+ dotnet tool install --global dotnet-ef --version 9.0.3
+ dotnet ef migrations add InitialCreate -p Persistance -s API
+ dotnet ef database update -p Persistance -s API
+ dotnet ef database drop -p Persistance -s API
