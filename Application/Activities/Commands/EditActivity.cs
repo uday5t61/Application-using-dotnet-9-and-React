@@ -14,7 +14,7 @@ namespace Application.Activities.Commands
     {
         public class Command : IRequest
         {
-            public Activity Activity { get; set; }
+            public required Activity Activity { get; set; }
         }
 
         public class Handler(AppDbContext context,IMapper mapper) : IRequestHandler<Command>

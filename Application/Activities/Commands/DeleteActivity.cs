@@ -12,7 +12,7 @@ namespace Application.Activities.Commands
     {
         public class Command : IRequest
         {
-            public string Id { get; set; }
+            public required string Id { get; set; }
         }
 
         public class Handler(AppDbContext context) : IRequestHandler<Command>
@@ -23,7 +23,7 @@ namespace Application.Activities.Commands
 
                 context.Activities.Remove(activity);
 
-                await context.SaveChangesAsync();
+                await context.SaveChangesAsync(cancellationToken);
             }
         }
     }
