@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+using MediatR;
+using Application.Activities.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 
 builder.Services.AddCors();
-
+builder.Services.AddMediatR(x => 
+                        x.RegisterServicesFromAssemblyContaining<GetActivityList.Handler>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
